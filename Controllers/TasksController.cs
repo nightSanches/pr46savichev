@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace pr45savichev.Controllers
 {
     [Route("api/TasksController")]
+    [ApiExplorerSettings(GroupName = "v1")]
     public class TasksController : Controller
     {
         /// <summary>
