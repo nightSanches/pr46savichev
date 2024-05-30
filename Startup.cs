@@ -24,6 +24,12 @@ namespace pr45savichev
                     Title = "Руководство для использования запросов",
                     Description = "Полное руководство для исопльзования запросов находящихся в проекте"
                 });
+                c.SwaggerDoc("v2", new OpenApiInfo
+                {
+                    Version = "v2",
+                    Title = "Руководство для пользования запросов",
+                    Description = "Полное руководство для использования запросов находящихся в проекте"
+                });
                 var filePath = Path.Combine(System.AppContext.BaseDirectory, "pr45savichev.xml");
                 c.IncludeXmlComments(filePath);
             });
@@ -35,9 +41,9 @@ namespace pr45savichev
             app.UseStatusCodePages();
             app.UseMvcWithDefaultRoute();
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
+            app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Запросы GET");
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "Запросы POST");
             });
         }
     }
